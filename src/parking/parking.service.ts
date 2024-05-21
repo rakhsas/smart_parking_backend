@@ -14,8 +14,8 @@ export class parkingService {
     }
 
     async findAll(): Promise<Parking[]> {
-        const books = await this.parkingModel.find().exec();
-        return books;
+        const data = await this.parkingModel.find().exec();
+        return data;
       }
 
 }
