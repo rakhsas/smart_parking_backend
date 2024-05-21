@@ -6,5 +6,4 @@ export const ParkingSchema = new mongoose.Schema({
     availabilityStatus: String,
 });
 
-// const parkingSchema = mongoose.model('Parking', parkingSchema)
-// export const Parking = mongoose.model('Parking', ParkingSchema);
+export const ParkingModel = mongoose.model('parkingModel', ParkingSchema);

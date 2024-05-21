@@ -11,7 +11,7 @@ export class ParkingController {
 
 
     @Get()
-    async getAllParkingSpaces(): Promise<Parking[]> {
-      return this.parkingService.findAll();
+    async getAllParkingSpaces(): Promise<any[]> {
+      return await this.parkingService.findAll();
     }
 }

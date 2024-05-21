@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
-import { ParkingSchema } from "./schemas/parking.schema";
-import { Parking } from "src/interfaces/parking.interface";
+import { ParkingModel, ParkingSchema } from "./schemas/parking.schema";
+// import { Parking } from "src/interfaces/parking.interface";
 import { Model } from "mongoose";
 @Injectable()
 export class parkingService {
@@ -9,13 +9,18 @@ export class parkingService {
      *
      */
     constructor(
-        @InjectModel('Parking') private readonly parkingModel: Model<Parking>,
+        @InjectModel('parkingModel') private readonly parkingModel: any,
     ) {
     }
 
-    async findAll(): Promise<Parking[]> {
-        const data = await this.parkingModel.find().exec();
-        return data;
+    async findAll(): Promise<any[]> {
+        try {
+            const data = await this.parkingModel.find().exec();
+            return data;
+
+        } catch (error) {
+            console.log(error);
+        }
       }
 
 }
